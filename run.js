@@ -1,10 +1,14 @@
 var a = [];
-var nonMutatingSort = function (arr) {
+
+//Function to return sorted array without actually changing the original array
+var nonModifyingSort = function (arr) {
   return [].concat(arr).sort( (a,b) => a > b );
 }
+
+//Function to check if arrays have all numbers
 var checkIfArraysHaveAllNumbers = function (arr) {
 	allNumberArrayString = "1,2,3,4,5,6,7,8,9";
-if(nonMutatingSort(arr).toString() == allNumberArrayString)
+if(nonModifyingSort(arr).toString() == allNumberArrayString)
 	return true
 return false
 }
@@ -14,6 +18,7 @@ for(var i = 0; i < 9; ++i) {
         a[i][j] = 0; // a[i] is now an array so this works.
     }
 }
+//Suduko numbers provided
 {a[0][7] = 6;
 a[1][2] = 7;
 a[1][3] = 3;
@@ -36,7 +41,7 @@ a[8][1] = 6;
 a[8][2] = 9;
 a[8][7] = 7;
 }
-///////////////////////////////////
+// Suduko solved answer
 {a[0][0] = 9;
 a[0][1] = 3;
 a[0][2] = 2;
@@ -105,6 +110,8 @@ a[8][4] = 1;
 a[8][5] = 8;
 a[8][6] = 4;
 a[8][8] = 2;}
+
+//Displaying suduko
 for(i = 0; i< 9 ; ++i)
 {
 	if(i%3==0)
@@ -112,6 +119,7 @@ for(i = 0; i< 9 ; ++i)
 	console.log(a[i][0],a[i][1],a[i][2],"  ",a[i][3],a[i][4],a[i][5],"  ",a[i][6],a[i][7],a[i][8],)
 }
 
+//Function to check if the solution is right
 function checkSudukoSolution(a) {
 	//check rows
 	for(var i = 0 ;i< 9; i++) {
@@ -132,4 +140,6 @@ function checkSudukoSolution(a) {
 	}
 	return true;
 }
-console.log('\n',checkSudukoSolution(a))
+
+//Displaying validation of solution
+console.log('\n Solution validity :',checkSudukoSolution(a))
